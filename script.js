@@ -39,6 +39,10 @@ const drawSquare = (square, type) => {
   }
 }
 
+const updateScore = () => {
+  scoreBoard.innerText = score;
+}
+
 const createBoard = () => {
   boardSquares.forEach( (row, rowIndex) => {
     row.forEach( (column, columnIndex) => {
@@ -68,6 +72,7 @@ const startGame = () => {
   gameOver.style.display = 'none';
   startButton.disabled = true;
   drawSnake();
+  updateScore();
 }
 
 startButton.addEventListener('click', startGame);
