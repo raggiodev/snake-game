@@ -40,7 +40,12 @@ const drawSquare = (square, type) => {
 }
 
 const updateScore = () => {
-  scoreBoard.innerText = score;
+  scoreBoard.innerText = (score - 3);
+}
+
+const createFood = () => {
+  const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
+  drawSquare(randomEmptySquare, 'foodSquare');
 }
 
 const createBoard = () => {
@@ -73,6 +78,7 @@ const startGame = () => {
   startButton.disabled = true;
   drawSnake();
   updateScore();
+  createFood();
 }
 
 startButton.addEventListener('click', startGame);
