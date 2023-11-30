@@ -48,6 +48,27 @@ const createFood = () => {
   drawSquare(randomEmptySquare, 'foodSquare');
 }
 
+const setDirection = newDirection => {
+  direction = newDirection;
+}
+
+const directionEvent = key => {
+  switch (key.code) {
+    case 'ArrowUp':
+      direction != 'ArrowDown' && setDirection(key.code)
+      break;
+    case 'ArrowDown':
+      direction != 'ArrowUp' && setDirection(key.code)
+      break;
+    case 'ArrowLeft':
+      direction != 'ArrowRight' && setDirection(key.code)
+      break;
+    case 'ArrowRight':
+      direction != 'ArrowLeft' && setDirection(key.code)
+      break;
+  }
+}
+
 const createBoard = () => {
   boardSquares.forEach( (row, rowIndex) => {
     row.forEach( (column, columnIndex) => {
@@ -79,6 +100,7 @@ const startGame = () => {
   drawSnake();
   updateScore();
   createFood();
+  document.addEventListener('keydown', directionEvent);
 }
 
 startButton.addEventListener('click', startGame);
