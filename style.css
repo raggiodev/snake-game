@@ -5,13 +5,13 @@
   font-family: 'Share Tech Mono', monospace;
 }
 
-.board {
+#board {
   max-width: 500px;
   display: grid;
-  grid-template-columns: repeat(10), 1fr;
+  grid-template-columns: repeat(10, 1fr);
 }
 
-.board-info {
+.boardInfo {
   max-width: 500px;
   font-size: 25px;
   display: flex;
@@ -19,11 +19,11 @@
   margin-top: 10px;
 }
 
-.board-score {
+#scoreBoard {
   display: inline-flex;
 }
 
-.start {
+#start {
   font-size: 25px;
   background-color: #f35a69;
   color: #fff;
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.game-over {
+#gameOver {
   display: none;
 }
 
@@ -39,14 +39,14 @@
   aspect-ratio: 1;
 }
 
-.snake-square {
+.snakeSquare {
   background-color: #ccf47f;
 }
 
-.food-square {
+.foodSquare {
   background-color: #f81a3b;
 }
 
-.empty-square {
+.emptySquare {
   background-color: #456990;
 }

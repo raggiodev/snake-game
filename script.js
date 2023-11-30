@@ -23,7 +23,7 @@ const createBoard = () => {
     row.forEach( (column, columnIndex) => {
       const squareValue = `${rowIndex}${columnIndex}`;
       const squareElement = document.createElement('div');
-      squareElement.setAttribute('class', 'square emptySquares');
+      squareElement.setAttribute('class', 'square emptySquare');
       squareElement.setAttribute('id', squareValue);
       board.appendChild(squareElement);
       emptySquares.push(squareValue);
