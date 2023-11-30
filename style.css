@@ -28,6 +28,7 @@
   background-color: #f35a69;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 
 .game-over {
