@@ -6,7 +6,7 @@ const gameOver = document.getElementById('gameOver');
 
 // game settings
 const boardSize = 10;
-const gameSpeed = 200;
+const gameSpeed = 150;
 const directions = { ArrowUp: -10, ArrowDown: 10, ArrowLeft: -1, ArrowRight: 1 }
 const squareTypes = { snakeSquare: 1, foodSquare: 2, emptySquare: 0 };
 
