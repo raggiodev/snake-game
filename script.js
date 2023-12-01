@@ -7,7 +7,7 @@ const gameOver = document.getElementById('gameOver');
 // game settings
 const boardSize = 10;
 const gameSpeed = 100;
-const directions = { arrowUp: -10, arrowDown: 10, arrowLeft: -1, arrowRight: 1 }
+const directions = { ArrowUp: -10, ArrowDown: 10, ArrowLeft: -1, ArrowRight: 1 }
 const squareTypes = { snakeSquare: 1, foodSquare: 2, emptySquare: 0 };
 
 // game variables
@@ -50,11 +50,11 @@ const createFood = () => {
 
 const moveSnake = () => {
   const newSquare = String(
-    Number(snake[snake.length - 1]) + directions[direction])
-    .padStart(
-      2, '0'
-  );
-  const [row, column] = newSquare.split('');
+    Number(snake[snake.length - 1]) +
+    directions[direction]
+    ).padStart(2, '0');
+
+    const [row, column] = newSquare.split('');
 
   if (newSquare < 0 ||
     newSquare > boardSize * boardSize ||
@@ -126,7 +126,7 @@ const createBoard = () => {
 const setGame = () => {
   snake = ['00', '01', '02', '03'];
   score = snake.length;
-  direction = 'arrowRight';
+  direction = 'ArrowRight';
   boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
   console.log(boardSquares);
   board.innerHTML = ''; // Borrar contenido que tenga de antes
