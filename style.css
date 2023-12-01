@@ -12,6 +12,7 @@ body {
   justify-content: center;
   height: 100vh;
   flex-direction: column;
+  background-color: #799191;
 }
 
 #board {
