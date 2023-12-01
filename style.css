@@ -12,7 +12,7 @@ body {
   justify-content: center;
   height: 100vh;
   flex-direction: column;
-  background-color: #799191;
+  background: linear-gradient(90deg, rgba(140,65,191,1) 0%, rgba(255,96,61,1) 50%, rgba(255,198,117,1) 100%);
 }
 
 #board {
