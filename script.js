@@ -7,7 +7,7 @@ const gameOver = document.getElementById('gameOver');
 // game settings
 const boardSize = 10;
 const gameSpeed = 100;
-const directions = { arrowUp: 10, arrowDown: -10, arrowLeft: -1, arrowRight: 1 }
+const directions = { arrowUp: -10, arrowDown: 10, arrowLeft: -1, arrowRight: 1 }
 const squareTypes = { snakeSquare: 1, foodSquare: 2, emptySquare: 0 };
 
 // game variables
@@ -46,6 +46,47 @@ const updateScore = () => {
 const createFood = () => {
   const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
   drawSquare(randomEmptySquare, 'foodSquare');
+}
+
+const moveSnake = () => {
+  const newSquare = String(
+    Number(snake[snake.length - 1]) + directions[direction])
+    .padStart(
+      2, '0'
+  );
+  const [row, column] = newSquare.split('');
+
+  if (newSquare < 0 ||
+    newSquare > boardSize * boardSize ||
+    (direction === 'ArrowRight' && column == 0) ||
+    (direction === 'ArrowLeft' && column == 9 ||
+    boardSquares[row][column] === squareTypes.snakeSquare)
+    ) {
+      gameOverReset();
+    }
+    else {
+      snake.push(newSquare);
+      if (boardSquares[row][column] === squareTypes.foodSquare) {
+        addFood();
+      }
+      else {
+        const emptySquare = snake.shift();
+        drawSquare(emptySquare, 'emptySquare');
+      }
+      drawSnake();
+    }
+}
+
+const addFood = () => {
+  score++;
+  updateScore();
+  createFood();
+}
+
+const gameOverReset = () => {
+  gameOver.style.display = 'block';
+  clearInterval(moveInterval);
+  startButton.disabled = false;
 }
 
 const setDirection = newDirection => {
@@ -101,6 +142,7 @@ const startGame = () => {
   updateScore();
   createFood();
   document.addEventListener('keydown', directionEvent);
+  moveInterval = setInterval(() => moveSnake(), gameSpeed);
 }
 
 startButton.addEventListener('click', startGame);
