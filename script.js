@@ -145,4 +145,15 @@ const startGame = () => {
   moveInterval = setInterval(() => moveSnake(), gameSpeed);
 }
 
+// RESPONSIVE ARCADE BUTTONS
+const buttonUp = document.getElementById('btnUp');
+const buttonDown = document.getElementById('btnDown');
+const buttonLeft = document.getElementById('btnLeft');
+const buttonRight = document.getElementById('btnRight');
+
+buttonUp.addEventListener('click', () => setDirection('ArrowUp'));
+buttonDown.addEventListener('click', () => setDirection('ArrowDown'));
+buttonLeft.addEventListener('click', () => setDirection('ArrowLeft'));
+buttonRight.addEventListener('click', () => setDirection('ArrowRight'));
+
 startButton.addEventListener('click', startGame);
