@@ -6,8 +6,17 @@
   overflow: hidden;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
 #board {
   max-width: 500px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
 }
@@ -16,16 +25,19 @@
   max-width: 500px;
   font-size: 25px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   margin-top: 10px;
 }
 
 #scoreBoard {
+  margin-top: 10px;
   display: inline-flex;
 }
 
 #start {
-  font-size: 25px;
+  margin-top: 10px;
+  font-size: 50px;
   background-color: #f35a69;
   color: #fff;
   border: none;
